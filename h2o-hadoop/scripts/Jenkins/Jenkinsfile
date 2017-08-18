@@ -35,7 +35,7 @@ pipeline {
         dockerfile {
           label "mr-0xc10"
           filename "h2o-hadoop/scripts/docker/${params.distribution}/Dockerfile"
-          additionalBuildArgs "--build-arg VERSION=${params.version}"
+          additionalBuildArgs "--build-arg VERSION=${params.version} --build-arg PATH_TO_DOCKER_DIR=h2o-hadoop/scripts/docker/cdh/"
           args "-u root -v \${WORKSPACE}/h2o-hadoop/tests:/home/h2o/tests"
           reuseNode true
         }
